@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:responsive_dashboard/models/drawer_item_model.dart';
 import 'package:responsive_dashboard/utils/app_images.dart';
 import 'package:responsive_dashboard/widgets/active_&_inactive_drawer_item.dart';
@@ -34,7 +31,7 @@ class CustomDrawer extends StatelessWidget {
             hasScrollBody: false,
             child: Column(
               children: [
-                Expanded(child: SizedBox(height: 48)),
+                Expanded(child: SizedBox(height: 40)),
                 InActiveDrawerItem(
                   drawerItemModel:
                       DrawerItemModel('Setting system', Assets.imagesSetting),
