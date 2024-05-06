@@ -7,30 +7,31 @@ class AllExpensessItemHeader extends StatelessWidget {
   final String image;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 60,
-          height: 60,
-          decoration: const ShapeDecoration(
-            color: Color(0xFFFAFAFA),
-            shape: OvalBorder(),
+    return SizedBox(
+      child: Row(
+        children: [
+          Container(
+            width: 60,
+            height: 60,
+            decoration: const ShapeDecoration(
+              color: Color(0xFFFAFAFA),
+              shape: OvalBorder(),
+            ),
+            // ShapeDecoration
+            child: Center(
+                child: SvgPicture.asset(
+              image,
+            )),
           ),
-          // ShapeDecoration
-          child: Center(
-              child: SvgPicture.asset(
-            image,
-          )),
-        ),
-        const Spacer(),
-        Transform.rotate(
-          angle: -1.57079633 * 2,
-          child: const Icon(
-            Icons.arrow_back_ios_new_outlined,
-            color: Color(0xFF064061),
+          Transform.rotate(
+            angle: -1.57079633 * 2,
+            child: const Icon(
+              Icons.arrow_back_ios_new_outlined,
+              color: Color(0xFF064061),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
