@@ -3,12 +3,18 @@ import 'package:responsive_dashboard/models/all_expensess_item_model.dart';
 import 'package:responsive_dashboard/utils/app_images.dart';
 import 'package:responsive_dashboard/widgets/all_expensess_item.dart';
 
-class AllExpensessItemListView extends StatelessWidget {
+class AllExpensessItemListView extends StatefulWidget {
   const AllExpensessItemListView({super.key});
 
-  static List<AllExpensessItemModle> items = [
+  @override
+  State<AllExpensessItemListView> createState() =>
+      _AllExpensessItemListViewState();
+}
+
+class _AllExpensessItemListViewState extends State<AllExpensessItemListView> {
+  final List<AllExpensessItemModle> items = [
     const AllExpensessItemModle(
-      image: Assets.imagesIncome,
+      image: Assets.imagesBalance,
       title: 'Balanc',
       date: 'Apr 20 2023',
       price: r'$20,50',
@@ -20,12 +26,14 @@ class AllExpensessItemListView extends StatelessWidget {
       price: r'$20,50',
     ),
     const AllExpensessItemModle(
-      image: Assets.imagesIncome,
+      image: Assets.imagesExpenses,
       title: 'Expensess',
       date: 'Apr 20 2023',
       price: r'$20,50',
     ),
   ];
+  int selectedIndex = 0;
+  //
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -37,13 +45,28 @@ class AllExpensessItemListView extends StatelessWidget {
         //
         if (index == 1) {
           return Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: AllExpensessItem(allExpensessModle: item),
+            child: GestureDetector(
+              onTap: () {
+                updateIndex(index);
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: AllExpensessItem(
+                    allExpensessModle: item,
+                    isSelected: selectedIndex == index),
+              ),
             ),
           );
         } else {
-          return Expanded(child: AllExpensessItem(allExpensessModle: item));
+          return Expanded(
+            child: GestureDetector(
+              onTap: () {
+                updateIndex(index);
+              },
+              child: AllExpensessItem(
+                  allExpensessModle: item, isSelected: selectedIndex == index),
+            ),
+          );
         }
       }).toList(),
     );
@@ -67,5 +90,11 @@ class AllExpensessItemListView extends StatelessWidget {
     //     );
     //   },
     // );
+  }
+
+  void updateIndex(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
   }
 }
