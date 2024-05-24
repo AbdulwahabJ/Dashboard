@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:responsive_dashboard/utils/app_styles.dart';
+import 'package:responsive_dashboard/widgets/3Section/transction_history_list_view.dart';
 
 class TransactionHistory extends StatelessWidget {
   const TransactionHistory({super.key});
@@ -21,6 +22,7 @@ class TransactionHistory extends StatelessWidget {
             ),
           ],
         ),
+        TransctionHistoryListView()
       ],
     );
   }
