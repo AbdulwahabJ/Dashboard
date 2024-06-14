@@ -24,6 +24,12 @@ class TransctionHistoryListView extends StatelessWidget {
       amount: r'$20,38',
       isWithdrawal: false,
     ),
+    TransctionModel(
+      title: ' Landing page',
+      date: '13 Apr, 2023',
+      amount: r'$20,38',
+      isWithdrawal: false,
+    ),
   ];
   @override
   Widget build(BuildContext context) {
